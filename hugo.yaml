@@ -21,21 +21,22 @@ params:
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
 
-  # Home Page Configuration (Ảnh 2 dùng Home-Layout với Profile phía trên)
+  # Home Page Configuration - Profile Style Layout
   profileMode:
     enabled: true
-    title: "Vilecong's Blog"
-    subtitle: "🚀 Software Engineer | Sharing my tech journey and stories."
-    imageUrl: "https://github.com/lcv-back.png" # Tự động lấy avatar Github
-    imageWidth: 120
-    imageHeight: 120
+    title: "Vilecong"
+    subtitle: "Software Engineer | Tech Enthusiast and Blogger"
+    imageUrl: "images/avatar.jpg" # Avatar image from static/images
+    imageWidth: 300
+    imageHeight: 300
+    imageTitle: "Avatar"
     buttons:
-      - name: "Feed"
-        url: "/"
-      - name: "Posts"
-        url: "/posts"
-      - name: "About"
+      - name: "BIO"
         url: "/about"
+      - name: "PORTFOLIO"
+        url: "/portfolio"
+      - name: "BLOG"
+        url: "/posts"
 
   # Cấu hình hiển thị danh sách bài viết (Quan trọng để giống mẫu)
   label:
@@ -47,6 +48,10 @@ params:
       url: "https://github.com/lcv-back"
     - name: "linkedin"
       url: "https://linkedin.com/in/vilecong"
+    - name: "twitter"
+      url: "https://twitter.com/"
+    - name: "instagram"
+      url: "https://instagram.com/"
 
 # Cấu hình Menu (Header bên phải)
 menu:
