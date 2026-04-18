@@ -1,4 +1,4 @@
-baseURL: "https://lcv-back.github.io/"
+baseURL: "https://vilecongblog.github.io/"
 languageCode: "en-us"
 title: "Vilecong Blog"
 theme: "PaperMod"
@@ -48,10 +48,6 @@ params:
       url: "https://github.com/lcv-back"
     - name: "linkedin"
       url: "https://linkedin.com/in/vilecong"
-    - name: "twitter"
-      url: "https://twitter.com/"
-    - name: "instagram"
-      url: "https://instagram.com/"
 
 # Cấu hình Menu (Header bên phải)
 menu:
