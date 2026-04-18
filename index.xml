@@ -2,5 +2,10 @@
 &lt;p&gt;title: &amp;ldquo;First Post&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;date: 2026-04-18&lt;/p&gt;
 &lt;p&gt;draft: false&lt;/p&gt;
-&lt;p&gt;-&amp;ndash;&lt;/p&gt;
-&lt;p&gt;Hello world 🚀&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;cover:
+image: &amp;ldquo;/images/cover.jpg&amp;rdquo;
+alt: &amp;ldquo;Cover image for first post&amp;rdquo;
+caption: &amp;ldquo;My first blog post&amp;rdquo;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Hello world 🚀&lt;/p&gt;
+&lt;p&gt;This is my first post on the blog. Welcome!&lt;/p&gt;</description></item></channel></rss>
