@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Vilecong Blog</title><link>https://lcv-back.github.io/vilecongblog.github.io/</link><description>Recent content on Vilecong Blog</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://lcv-back.github.io/vilecongblog.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://lcv-back.github.io/vilecongblog.github.io/posts/first-post/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lcv-back.github.io/vilecongblog.github.io/posts/first-post/</guid><description>&lt;p&gt;-&amp;ndash;&lt;/p&gt;
-&lt;p&gt;title: &amp;ldquo;First Post&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;date: 2026-04-18&lt;/p&gt;
-&lt;p&gt;draft: false&lt;/p&gt;
-&lt;p&gt;cover:
-image: &amp;ldquo;/images/cover.jpg&amp;rdquo;
-alt: &amp;ldquo;Cover image for first post&amp;rdquo;
-caption: &amp;ldquo;My first blog post&amp;rdquo;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Hello world 🚀&lt;/p&gt;
-&lt;p&gt;This is my first post on the blog. Welcome!&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>CodeForFun</title><link>https://lcv-back.github.io/vilecongblog.github.io/</link><description>Recent content on CodeForFun</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 18 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://lcv-back.github.io/vilecongblog.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Everything About Apache Kafka</title><link>https://lcv-back.github.io/vilecongblog.github.io/posts/first-post/</link><pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate><guid>https://lcv-back.github.io/vilecongblog.github.io/posts/first-post/</guid><description>A comprehensive deep-dive into Apache Kafka: how it works, core concepts, use cases, and everything you need to go from zero to production.</description></item></channel></rss>
