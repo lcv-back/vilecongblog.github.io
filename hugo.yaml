@@ -3,10 +3,8 @@ languageCode: "en-us"
 title: "Vilecong Blog"
 theme: "PaperMod"
 
-# Hỗ trợ tiếng Việt nếu bạn viết bài bằng tiếng Việt
+# Hỗ trợ tiếng Việt
 hasCJKLanguage: true
-
-# Dùng đường dẫn tương đối để fix lỗi subfolder
 relativeURLs: true
 
 params:
@@ -14,8 +12,8 @@ params:
   description: "Software Engineer | Tech Enthusiast"
   author: "Vilecong"
 
-  # Cấu hình giao diện chung
-  defaultTheme: light # Sử dụng theme sáng để CSS màu kem hoạt động
+  # Cấu hình giao diện chuẩn PaperMod
+  defaultTheme: light
   disableThemeToggle: true
   ShowShareButtons: true
   ShowReadingTime: true
@@ -24,52 +22,33 @@ params:
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
 
-  # Home Page Configuration - Profile Style Layout
+  # TẮT ProfileMode để tạo giao diện Banner tùy chỉnh
   profileMode:
-    enabled: true
-    title: "Vilecong"
-    subtitle: "Software Engineer | Tech Enthusiast and Blogger"
-    imageUrl: "images/avatar.jpg" # Avatar image from static/images
-    imageWidth: 300
-    imageHeight: 300
-    imageTitle: "Avatar"
-    buttons:
-      - name: "BIO"
-        url: "/about"
-      - name: "PORTFOLIO"
-        url: "/portfolio"
-      - name: "BLOG"
-        url: "/posts"
+    enabled: false
 
-  # Cấu hình hiển thị danh sách bài viết (Quan trọng để giống mẫu)
+  # Cấu hình Label (Logo)
   label:
-    text: "🏠 Home"
+    text: "G Agrab"
 
-  # Social Icons
-  socialIcons:
-    - name: "github"
-      url: "https://github.com/lcv-back"
-    - name: "linkedin"
-      url: "https://linkedin.com/in/vilecong"
-
-# Cấu hình Menu (Header bên phải)
 menu:
   main:
-    - name: "Feed"
+    - name: "Home"
       url: "/"
       weight: 10
-    - name: "Posts"
-      url: "/posts/"
-      weight: 20
     - name: "About"
       url: "/about/"
+      weight: 20
+    - name: "Service"
+      url: "/portfolio/"
       weight: 30
+    - name: "Blog"
+      url: "/posts/"
+      weight: 40
 
-# Cấu hình Markup để hỗ trợ hiển thị code đẹp hơn
 markup:
   goldmark:
     renderer:
-      unsafe: true # Cho phép dùng HTML trong Markdown nếu cần
+      unsafe: true
   highlight:
     noClasses: false
-    style: "monokai" # Tông màu tối cho code
+    style: "monokai"
