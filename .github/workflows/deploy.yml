@@ -9,9 +9,16 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
+    # THÊM ĐOẠN NÀY ĐỂ CẤP QUYỀN GHI CHO TOKEN
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          submodules: true  # Thường Hugo cần submodules cho các Theme
+          fetch-depth: 0    # Để lấy đủ dữ liệu cho các tính năng Hugo (như ngày cập nhật)
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
