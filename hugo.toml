@@ -1,44 +1,71 @@
-baseURL = "https://vilecongblog.github.io/"
-locale = 'en-us'
-languageCode = "en-us"
-title = "My Blog"
-theme = "PaperMod"
+baseURL: "https://vilecongblog.github.io/"
+languageCode: "en-us"
+title: "Vilecong Blog"
+theme: "PaperMod"
 
-[params]
-  # Profile mode for homepage
-  [params.profileMode]
-    enabled = true
-    title = "My Blog"
-    subtitle = "Welcome to my personal blog"
-    imageUrl = "/images/profile.jpg"
-    imageTitle = "Profile Picture"
-    imageWidth = 120
-    imageHeight = 120
+# Hỗ trợ tiếng Việt nếu bạn viết bài bằng tiếng Việt
+hasCJKLanguage: true 
 
-    [[params.profileMode.buttons]]
-      name = "Posts"
-      url = "/posts"
+params:
+  env: production
+  description: "Software Engineer | Tech Enthusiast"
+  author: "Vilecong"
+  
+  # Cấu hình giao diện chung
+  defaultTheme: dark # Ép buộc dùng giao diện tối như mẫu
+  disableThemeToggle: false
+  ShowShareButtons: true
+  ShowReadingTime: true
+  displayFullContent: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
 
-    [[params.profileMode.buttons]]
-      name = "Tags"
-      url = "/tags"
+  # Home Page Configuration (Ảnh 2 dùng Home-Layout với Profile phía trên)
+  profileMode:
+    enabled: true
+    title: "Vilecong's Blog"
+    subtitle: "🚀 Software Engineer | Sharing my tech journey and stories."
+    imageUrl: "https://github.com/vilecongblog.png" # Tự động lấy avatar Github
+    imageWidth: 120
+    imageHeight: 120
+    buttons:
+      - name: "Feed"
+        url: "/"
+      - name: "Posts"
+        url: "/posts"
+      - name: "About"
+        url: "/about"
 
-  # Social icons
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/vilecongblog"
+  # Cấu hình hiển thị danh sách bài viết (Quan trọng để giống mẫu)
+  label:
+    text: "🏠 Home"
+  
+  # Social Icons
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/vilecongblog"
+    - name: "linkedin"
+      url: "https://linkedin.com/in/your-profile"
 
-  # Cover image for posts
-  [params.cover]
-    linkFullImages = true
+# Cấu hình Menu (Header bên phải)
+menu:
+  main:
+    - name: "Feed"
+      url: "/"
+      weight: 10
+    - name: "Posts"
+      url: "/posts/"
+      weight: 20
+    - name: "About"
+      url: "/about/"
+      weight: 30
 
-  # Show reading time
-  ShowReadingTime = true
-
-  # Show share buttons
-  ShowShareButtons = true
-
-  # Custom CSS
-  [params.assets]
-    [[params.assets.css]]
-      file = "css/custom.css"
+# Cấu hình Markup để hỗ trợ hiển thị code đẹp hơn
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # Cho phép dùng HTML trong Markdown nếu cần
+  highlight:
+    noClasses: false
+    style: "monokai" # Tông màu tối cho code
