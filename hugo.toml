@@ -1,0 +1,5 @@
+baseURL = "https://vilecongblog.github.io/"
+locale = 'en-us'
+languageCode = "en-us"
+title = "My Blog"
+theme = "PaperMod"
