@@ -12,8 +12,8 @@ params:
   author: "Vilecong"
 
   # Cấu hình giao diện chung
-  defaultTheme: dark # Ép buộc dùng giao diện tối như mẫu
-  disableThemeToggle: false
+  defaultTheme: light # Sử dụng theme sáng để CSS màu kem hoạt động
+  disableThemeToggle: true
   ShowShareButtons: true
   ShowReadingTime: true
   displayFullContent: false
