@@ -1,43 +1,143 @@
 {{ define "main" }}
 <div class="custom-container">
+
+    <!-- ═══════════════════════════════════════════
+         HERO — personal intro, split layout
+         ═══════════════════════════════════════════ -->
     <section class="hero-section">
+
+        <!-- LEFT: text content -->
         <div class="hero-content">
-            <h1 class="hero-title">Sustainable Future Insights</h1>
+            <span class="hero-greeting">👋 Hello World</span>
+
+            <h1 class="hero-title">
+                Welcome to my blog.<br> I'm <span class="hero-name">Vi</span>.
+            </h1>
+
+            <p class="hero-role">Software Engineer &amp; Tech Enthusiast</p>
+
             <p class="hero-description">
-                An share common create and strategies for improving your communicate for high-demand of service. unique, flexile, creative innovative we define.
+                I'm passionate about building reliable, scalable systems and crafting clean software. I write here about things I learn, ship, and occasionally break. Enjoy the journey.
             </p>
-            <a href="/about/" class="hero-learn-more">Learn More →</a>
+
+            <!-- CTAs -->
+            <div class="hero-ctas">
+                <a href="{{ " /posts/ " | absURL }}" class="btn-primary">Read My Blog →</a>
+            </div>
+
+            <!-- Carousel dots -->
+            <div class="hero-dots">
+                <span class="hero-dot active"></span>
+                <span class="hero-dot"></span>
+                <span class="hero-dot"></span>
+            </div>
         </div>
+
+        <!-- RIGHT: avatar + decorative ring -->
         <div class="hero-image-box">
-            <img src="{{ " images/hero.jpg " | relURL }}" alt="Sustainable Future" class="hero-img-main">
+            <div class="hero-avatar-wrap">
+                <div class="hero-avatar-ring"></div>
+                <img src="{{ " images/avatar.jpg " | absURL }}" alt="Vi — Software Engineer" class="hero-avatar">
+
+                <!-- Floating stat cards -->
+                <div class="hero-float hero-float--tl">
+                    <span class="hero-float-icon">✍️</span>
+                    <div>
+                        <strong>{{ len .Site.RegularPages }}</strong>
+                        <small>Posts</small>
+                    </div>
+                </div>
+                <div class="hero-float hero-float--br">
+                    <span class="hero-float-icon">🚀</span>
+                    <div>
+                        <strong>Open Source</strong>
+                        <small>Contributor</small>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </section>
 
+    <!-- ═══════════════════════════════════════════
+         TRENDING POSTS — 3-column card grid
+         ═══════════════════════════════════════════ -->
     <section class="trending-section">
-        <h2 class="trending-heading">Our Trending Article</h2>
-        <p class="trending-subheading">Commonly dummy text of the printing and typesetting industry.</p>
+        <div class="trending-header">
+            <div>
+                <h2 class="trending-heading">Latest Posts</h2>
+                <p class="trending-subheading">Things I've been thinking, writing, and building lately.</p>
+            </div>
+            <a href="{{ " /posts/ " | absURL }}" class="trending-view-all">View all →</a>
+        </div>
 
         <div class="post-grid">
             {{- $pages := where .Site.RegularPages "Type" "posts" }} {{- range first 3 $pages }}
             <article class="custom-post-card">
                 <div class="post-card-thumb">
                     {{- if .Params.cover.image }}
-                    <img src="{{ .Params.cover.image | relURL }}" alt="{{ .Title }}"> {{- else }}
-                    <img src="{{ " images/hero.jpg " | relURL }}" alt="Default Cover"> {{- end }}
+                    <img src="{{ .Params.cover.image }}" alt="{{ .Title }}"> {{- else }}
+                    <img src="{{ " images/hero.jpg " | absURL }}" alt="Default Cover"> {{- end }}
                 </div>
                 <div class="post-card-body">
+                    {{- with .Params.tags }}
+                    <span class="post-tag">{{ index . 0 }}</span> {{- end }}
                     <h3 class="post-card-title">
                         <a href="{{ .Permalink }}">{{ .Title }}</a>
                     </h3>
-                    <p class="post-card-excerpt">{{ .Summary | truncate 100 }}</p>
+                    <p class="post-card-excerpt">{{ .Summary | truncate 110 }}</p>
                     <div class="post-card-footer">
-                        <a href="{{ .Permalink }}" class="post-card-link">Learn More</a>
-                        <span class="check-badge">✔</span>
+                        <span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                        <span class="post-read-time">· {{ .ReadingTime }} min read</span>
                     </div>
+                    <div class="post-card-bar"></div>
                 </div>
             </article>
             {{- end }}
         </div>
     </section>
+
 </div>
+<!-- end .custom-container -->
+
+<div class="custom-container">
+    <!-- ═══════════════════════════════════════════
+         FAQ — details/summary accordion
+         ═══════════════════════════════════════════ -->
+    <section class="faq-section">
+        <div class="faq-inner">
+            <div class="faq-header">
+                <h2 class="faq-heading">Got a question?<br>I'm here to answer.</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item" open>
+                    <summary class="faq-question">What topics do you write about?</summary>
+                    <p class="faq-answer">
+                        Mainly distributed systems, backend engineering, and developer productivity. Apache Kafka, message queues, database internals, Go, and the occasional deep-dive into tools I use daily.
+                    </p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How often do you publish new posts?</summary>
+                    <p class="faq-answer">
+                        I aim for at least twice a month. Each post is researched and written carefully — quality over quantity. Subscribe to the newsletter in the footer to get notified.
+                    </p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">Can I share or reuse your articles?</summary>
+                    <p class="faq-answer">
+                        Yes, with attribution. Please link back to the original post. For commercial reuse, feel free to reach out to me directly via the contact page.
+                    </p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-question">How can I get in touch?</summary>
+                    <p class="faq-answer">
+                        Best way is through the contact page or my social links in the footer. I read every message and try to reply within a few days.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+</div>
+<!-- close faq custom-container -->
 {{ end }}

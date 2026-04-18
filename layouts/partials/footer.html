@@ -1,0 +1,45 @@
+<footer class="custom-footer">
+    <div class="footer-inner">
+        <div>
+            <div class="footer-brand-name">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17 8C8 10 5.9 16.17 3.82 21H5.71C8 16 10 12 22 12C22 12 21 8 17 8Z" />
+                </svg> {{ .Site.Title }}
+            </div>
+            <p class="footer-brand-desc">{{ .Site.Params.description }}</p>
+        </div>
+
+        <div>
+            <p class="foot-col-title">Company</p>
+            <ul class="footer-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts/">Blog</a></li>
+                <li>
+                    <a href="/about/">About</a>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="footer-col-title">Support</p>
+            <ul class="footer-links">
+                <li><a href="/about/">About</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="footer-col-title">Newsletter</p>
+            <p class="footer-newsletter-desc">Get new posts delivered straight to your inbox.</p>
+            <form class="footer-form" onsubmit="return false;">
+                <input type="email" placeholder="Your email address" aria-label="Email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>&copy; {{ now.Year }} {{ .Site.Title }}. All rights reserved.</span>
+        <span>Build with Hugo &amp; PaperMod</span>
+    </div>
+</footer>

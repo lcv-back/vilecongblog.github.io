@@ -1,0 +1,92 @@
+{{- define "main" }} {{- $allPosts := where .Site.RegularPages "Type" "posts" }} {{- $featured := index $allPosts 0 }} {{- $rest := after 1 $allPosts }} {{- /* Collect all unique tags across all posts */ -}} {{- $allTags := slice }} {{- range $allPosts
+}} {{- range .Params.tags }} {{- $allTags = $allTags | append . }} {{- end }} {{- end }} {{- $allTags = $allTags | uniq | sort }}
+
+<div class="blog-page">
+
+    <!-- ── Page header ── -->
+    <div class="blog-page__header">
+        <div>
+            <h1 class="blog-page__title">All Posts</h1>
+            <p class="blog-page__meta">
+                {{ len $allPosts }} article{{ if ne (len $allPosts) 1 }}s{{ end }} — updated regularly
+            </p>
+        </div>
+        <a href="{{ " /search/ " | absURL }}" class="blog-page__search-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg> Search &amp; Filter
+        </a>
+    </div>
+
+    <!-- ── Tag chips ── -->
+    {{- if $allTags }}
+    <div class="blog-page__tags">
+        <span class="blog-page__tags-label">Browse by tag:</span> {{- range $allTags }}
+        <a href="{{ " /tags/ " | absURL }}{{ . | urlize }}/" class="blog-tag-chip">{{ . }}</a> {{- end }}
+    </div>
+    {{- end }}
+
+    <!-- ── Featured post (latest) ── -->
+    {{- with $featured }} {{- $imgSrc := .Params.cover.image | default "images/hero.jpg" }} {{- $imgURL := $imgSrc | absURL }}
+    <a href="{{ .Permalink }}" class="blog-featured">
+        <div class="blog-featured__text">
+            <div class="blog-featured__eyebrow">
+                {{- with .Params.tags }}
+                <span class="blog-tag-pill">{{ index . 0 }}</span> {{- end }}
+                <span class="blog-featured__new">✦ Latest</span>
+            </div>
+            <h2 class="blog-featured__title">{{ .Title }}</h2>
+            <p class="blog-featured__excerpt">{{ .Summary | truncate 180 }}</p>
+            <div class="blog-featured__footer">
+                <span class="blog-featured__date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                <span class="blog-featured__sep">·</span>
+                <span class="blog-featured__rt">{{ .ReadingTime }} min read</span>
+            </div>
+            <span class="blog-featured__cta">Read article →</span>
+        </div>
+        <div class="blog-featured__img-wrap">
+            <img src="{{ $imgURL }}" alt="{{ .Title }}" class="blog-featured__img" loading="eager" />
+        </div>
+    </a>
+    {{- end }}
+
+    <!-- ── Remaining posts grid ── -->
+    {{- if $rest }}
+    <div class="blog-grid__heading-row">
+        <h2 class="blog-grid__heading">More Articles</h2>
+    </div>
+    <div class="blog-grid">
+        {{- range $rest }} {{- $imgSrc := .Params.cover.image | default "images/hero.jpg" }} {{- $imgURL := $imgSrc | absURL }}
+        <article class="custom-post-card">
+            <a href="{{ .Permalink }}" class="blog-card__img-link" tabindex="-1" aria-hidden="true">
+                <div class="post-card-thumb">
+                    <img src="{{ $imgURL }}" alt="{{ .Title }}" loading="lazy" />
+                </div>
+            </a>
+            <div class="post-card-body">
+                {{- with .Params.tags }}
+                <span class="post-tag">{{ index . 0 }}</span> {{- end }}
+                <h3 class="post-card-title">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </h3>
+                <p class="post-card-excerpt">{{ .Summary | truncate 110 }}</p>
+                <div class="post-card-footer">
+                    <span class="post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                    <span class="post-read-time">· {{ .ReadingTime }} min read</span>
+                </div>
+                <div class="post-card-bar"></div>
+            </div>
+        </article>
+        {{- end }}
+    </div>
+    {{- end }}
+
+    <!-- Empty state -->
+    {{- if not $allPosts }}
+    <div class="blog-page__empty">
+        <p>No posts yet — check back soon! 🚀</p>
+    </div>
+    {{- end }}
+
+</div>
+{{- end }}

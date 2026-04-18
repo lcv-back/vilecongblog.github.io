@@ -1,26 +1,32 @@
 baseURL: "https://lcv-back.github.io/vilecongblog.github.io/"
 languageCode: "en-us"
-title: "Vilecong Blog"
+title: "CodeForFun"
 theme: "PaperMod"
 
 # Hỗ trợ tiếng Việt
 hasCJKLanguage: true
-relativeURLs: true
+relativeURLs: false
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
 
 params:
   env: production
   description: "Software Engineer | Tech Enthusiast"
-  author: "Vilecong"
+  author: "ViLe"
 
   # Cấu hình giao diện chuẩn PaperMod
-  defaultTheme: light
-  disableThemeToggle: true
+  defaultTheme: auto
+  disableThemeToggle: false
   ShowShareButtons: true
   ShowReadingTime: true
-  displayFullContent: false
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
+  ShowToc: true
 
   # TẮT ProfileMode để tạo giao diện Banner tùy chỉnh
   profileMode:
@@ -28,22 +34,27 @@ params:
 
   # Cấu hình Label (Logo)
   label:
-    text: "G Agrab"
+    text: "CodeForFun"
+    image: "images/profile.jpg"
+
+  # Search (Fuse.js)
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
 
 menu:
   main:
     - name: "Home"
       url: "/"
       weight: 10
-    - name: "About"
-      url: "/about/"
-      weight: 20
-    - name: "Service"
-      url: "/portfolio/"
-      weight: 30
     - name: "Blog"
       url: "/posts/"
-      weight: 40
+      weight: 20
 
 markup:
   goldmark:

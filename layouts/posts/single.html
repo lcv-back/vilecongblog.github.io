@@ -1,0 +1,101 @@
+{{- define "main" }}
+<article class="post-single">
+    <header class="post-header">
+        {{ partial "breadcrumbs.html" . }}
+        <h1 class="post-title">{{ .Title }}</h1>
+        {{- if .Description }}
+        <div class="post-description">{{ .Description }}</div>
+        {{- end }} {{- if not (.Param "hideMeta") }}
+        <div class="post-meta">
+            {{- partial "post_meta.html" . -}}
+        </div>
+        {{- end }}
+    </header>
+
+    {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }} {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }} {{- if (.Param "ShowToc") }} {{- partial "toc.html" . }} {{- end }} {{-
+    if .Content }}
+    <div class="post-content md-content">
+        {{- if not (.Param "disableAnchoredHeadings") }} {{- partial "anchored_headings.html" .Content -}} {{- else }}{{ .Content }}{{ end }}
+    </div>
+    {{- end }}
+
+    <!-- ★ Star Rating -->
+    <div class="post-rating" id="post-rating" data-slug="{{ .File.UniqueID }}">
+        <div class="post-rating__prompt">Was this article helpful?</div>
+        <div class="post-rating__stars" role="radiogroup" aria-label="Rate this article">
+            {{- range seq 1 5 }}
+            <button class="post-rating__star" data-value="{{ . }}" aria-label="Rate {{ . }} out of 5 stars" type="button">★</button> {{- end }}
+        </div>
+        <div class="post-rating__msg" hidden></div>
+    </div>
+
+    <footer class="post-footer">
+        {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+        <ul class="post-tags">
+            {{- range ($.GetTerms $tags) }}
+            <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+            {{- end }}
+        </ul>
+        {{- if (.Param "ShowPostNavLinks") }} {{- partial "post_nav_links.html" . }} {{- end }} {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }} {{- partial "share_icons.html" . -}} {{- end }}
+    </footer>
+
+    {{- if (.Param "comments") }} {{- partial "comments.html" . }} {{- end }}
+</article>
+
+<script>
+    (function() {
+        var container = document.getElementById('post-rating');
+        if (!container) return;
+
+        var slug = container.dataset.slug;
+        var key = 'rating-' + slug;
+        var stars = container.querySelectorAll('.post-rating__star');
+        var msg = container.querySelector('.post-rating__msg');
+        var saved = localStorage.getItem(key);
+
+        function setStars(val, permanent) {
+            stars.forEach(function(s, i) {
+                s.classList.toggle('is-filled', i < val);
+                s.classList.toggle('is-hovered', false);
+            });
+            if (permanent) {
+                container.classList.add('is-rated');
+                msg.hidden = false;
+                msg.textContent = 'Thanks for rating ' + val + ' out of 5! ⭐';
+                stars.forEach(function(s) {
+                    s.disabled = true;
+                });
+            }
+        }
+
+        /* Restore saved rating */
+        if (saved) {
+            setStars(parseInt(saved, 10), true);
+        }
+
+        stars.forEach(function(star, idx) {
+            star.addEventListener('mouseenter', function() {
+                if (container.classList.contains('is-rated')) return;
+                stars.forEach(function(s, i) {
+                    s.classList.toggle('is-hovered', i <= idx);
+                    s.classList.toggle('is-filled', false);
+                });
+            });
+            star.addEventListener('mouseleave', function() {
+                if (container.classList.contains('is-rated')) return;
+                var cur = parseInt(localStorage.getItem(key) || '0', 10);
+                stars.forEach(function(s, i) {
+                    s.classList.toggle('is-hovered', false);
+                    s.classList.toggle('is-filled', i < cur);
+                });
+            });
+            star.addEventListener('click', function() {
+                if (container.classList.contains('is-rated')) return;
+                var val = idx + 1;
+                localStorage.setItem(key, val);
+                setStars(val, true);
+            });
+        });
+    })();
+</script>
+{{- end }}

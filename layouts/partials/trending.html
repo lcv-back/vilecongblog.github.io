@@ -1,0 +1,66 @@
+{{- $trending := site.Data.trending }} {{- if $trending }}
+<section class="trending-ext-section">
+    <div class="custom-container">
+        <div class="trending-ext__header">
+            <div>
+                <h2 class="trending-ext__title">🔥 Trending in Tech</h2>
+                <p class="trending-ext__sub">Curated picks from top engineering blogs</p>
+            </div>
+        </div>
+
+        <!-- Source tabs -->
+        <div class="trending-ext__tabs" id="trending-tabs" role="tablist">
+            {{- range $i, $src := $trending.sources }}
+            <button class="trending-ext__tab{{ if eq $i 0 }} is-active{{ end }}" role="tab" data-tab="{{ $i }}" aria-selected="{{ if eq $i 0 }}true{{ else }}false{{ end }}">
+                <span>{{ $src.icon }}</span> {{ $src.name }}
+            </button> {{- end }}
+        </div>
+
+        <!-- Source panels -->
+        <div class="trending-ext__panels">
+            {{- range $i, $src := $trending.sources }}
+            <div class="trending-ext__panel{{ if eq $i 0 }} is-active{{ end }}" role="tabpanel" data-panel="{{ $i }}">
+                <div class="trending-ext__cards">
+                    {{- range $src.articles }}
+                    <a href="{{ .url }}" class="trending-ext__card" target="_blank" rel="noopener noreferrer">
+                        <div class="trending-ext__card-source" style="--src-clr: {{ $src.color }}; color: var(--src-clr)">
+                            {{ $src.icon }} {{ $src.name }}
+                        </div>
+                        <h3 class="trending-ext__card-title">{{ .title }}</h3>
+                        <p class="trending-ext__card-summary">{{ .summary }}</p>
+                        <div class="trending-ext__card-footer">
+                            <span class="trending-ext__card-date">{{ .date }}</span>
+                            <span class="trending-ext__card-read">Read →</span>
+                        </div>
+                    </a>
+                    {{- end }}
+                </div>
+            </div>
+            {{- end }}
+        </div>
+    </div>
+</section>
+
+<script>
+    (function() {
+        var tabs = document.querySelectorAll('.trending-ext__tab');
+        var panels = document.querySelectorAll('.trending-ext__panel');
+
+        tabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var idx = tab.dataset.tab;
+                tabs.forEach(function(t) {
+                    t.classList.remove('is-active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                panels.forEach(function(p) {
+                    p.classList.remove('is-active');
+                });
+                tab.classList.add('is-active');
+                tab.setAttribute('aria-selected', 'true');
+                document.querySelector('.trending-ext__panel[data-panel="' + idx + '"]').classList.add('is-active');
+            });
+        });
+    })();
+</script>
+{{- end }}
