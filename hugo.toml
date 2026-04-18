@@ -3,3 +3,42 @@ locale = 'en-us'
 languageCode = "en-us"
 title = "My Blog"
 theme = "PaperMod"
+
+[params]
+  # Profile mode for homepage
+  [params.profileMode]
+    enabled = true
+    title = "My Blog"
+    subtitle = "Welcome to my personal blog"
+    imageUrl = "/images/profile.jpg"
+    imageTitle = "Profile Picture"
+    imageWidth = 120
+    imageHeight = 120
+
+    [[params.profileMode.buttons]]
+      name = "Posts"
+      url = "/posts"
+
+    [[params.profileMode.buttons]]
+      name = "Tags"
+      url = "/tags"
+
+  # Social icons
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/vilecongblog"
+
+  # Cover image for posts
+  [params.cover]
+    linkFullImages = true
+
+  # Show reading time
+  ShowReadingTime = true
+
+  # Show share buttons
+  ShowShareButtons = true
+
+  # Custom CSS
+  [params.assets]
+    [[params.assets.css]]
+      file = "css/custom.css"
