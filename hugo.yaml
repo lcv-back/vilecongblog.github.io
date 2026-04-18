@@ -4,13 +4,13 @@ title: "Vilecong Blog"
 theme: "PaperMod"
 
 # Hỗ trợ tiếng Việt nếu bạn viết bài bằng tiếng Việt
-hasCJKLanguage: true 
+hasCJKLanguage: true
 
 params:
   env: production
   description: "Software Engineer | Tech Enthusiast"
   author: "Vilecong"
-  
+
   # Cấu hình giao diện chung
   defaultTheme: dark # Ép buộc dùng giao diện tối như mẫu
   disableThemeToggle: false
@@ -26,7 +26,7 @@ params:
     enabled: true
     title: "Vilecong's Blog"
     subtitle: "🚀 Software Engineer | Sharing my tech journey and stories."
-    imageUrl: "https://github.com/vilecongblog.png" # Tự động lấy avatar Github
+    imageUrl: "https://github.com/lcv-back.png" # Tự động lấy avatar Github
     imageWidth: 120
     imageHeight: 120
     buttons:
@@ -40,13 +40,13 @@ params:
   # Cấu hình hiển thị danh sách bài viết (Quan trọng để giống mẫu)
   label:
     text: "🏠 Home"
-  
+
   # Social Icons
   socialIcons:
     - name: "github"
-      url: "https://github.com/vilecongblog"
+      url: "https://github.com/lcv-back"
     - name: "linkedin"
-      url: "https://linkedin.com/in/your-profile"
+      url: "https://linkedin.com/in/vilecong"
 
 # Cấu hình Menu (Header bên phải)
 menu:
