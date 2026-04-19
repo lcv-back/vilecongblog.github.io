@@ -22,7 +22,7 @@
 
             <!-- CTAs -->
             <div class="hero-ctas">
-                <a href="{{ " /posts/ " | absURL }}" class="btn-primary">Read My Blog →</a>
+                <a href="{{ "/posts/" | absURL }}" class="btn-primary">Read My Blog →</a>
             </div>
 
             <!-- Carousel dots -->
@@ -37,7 +37,7 @@
         <div class="hero-image-box">
             <div class="hero-avatar-wrap">
                 <div class="hero-avatar-ring"></div>
-                <img src="{{ " images/avatar.jpg " | absURL }}" alt="Vi — Software Engineer" class="hero-avatar">
+                <img src="{{ "images/avatar.jpg" | absURL }}" alt="Vi — Software Engineer" class="hero-avatar">
 
                 <!-- Floating stat cards -->
                 <div class="hero-float hero-float--tl">
@@ -68,7 +68,7 @@
                 <h2 class="trending-heading">Latest Posts</h2>
                 <p class="trending-subheading">Things I've been thinking, writing, and building lately.</p>
             </div>
-            <a href="{{ " /posts/ " | absURL }}" class="trending-view-all">View all →</a>
+            <a href="{{ "/posts/" | absURL }}" class="trending-view-all">View all →</a>
         </div>
 
         <div class="post-grid">
@@ -77,7 +77,7 @@
                 <div class="post-card-thumb">
                     {{- if .Params.cover.image }}
                     <img src="{{ .Params.cover.image }}" alt="{{ .Title }}"> {{- else }}
-                    <img src="{{ " images/hero.jpg " | absURL }}" alt="Default Cover"> {{- end }}
+                    <img src="{{ "images/hero.jpg" | absURL }}" alt="Default Cover"> {{- end }}
                 </div>
                 <div class="post-card-body">
                     {{- with .Params.tags }}
