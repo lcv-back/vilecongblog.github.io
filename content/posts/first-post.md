@@ -4,7 +4,7 @@ date: 2026-04-18
 draft: false
 tags: ["kafka", "distributed-systems", "backend"]
 cover:
-  image: "static/images/kafka-cover.jpg"
+  image: "images/kafka-cover.jpg"
   alt: "Apache Kafka architecture overview"
   caption: "Apache Kafka — a distributed event streaming platform"
 summary: "A comprehensive deep-dive into Apache Kafka: how it works, core concepts, use cases, and everything you need to go from zero to production."
